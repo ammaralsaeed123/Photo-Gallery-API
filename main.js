@@ -1,3 +1,38 @@
+let test = document.getElementById("test");
+    fetch('http://127.0.0.6:3000/', {
+            method: 'GET',
+            
+        })
+        .then(response => response.json())
+        .then(data => {
+            let re = data.photos;
+            for(let i=0 ; i<20 ; i++) { 
+          test.innerHTML += `<img src = "${re[i]}" class = "img" />`;
+        }
+        })
+      
+       function getelement() {
+        fetch('http://127.0.0.6:3000/', {
+          method: 'GET',
+          
+      })
+      .then(response => response.json())
+      .then(data => {
+          let re = data.photos;
+          for(let i=0 ; i<20 ; i++) { 
+        test.innerHTML += `<img src = "${re[i]}" class = "img" />`;
+      }
+      })
+    }
+
+
+
+
+
+
+
+
+
 //let all12 = document.getElementById("view");
 //let show = document.getElementsByTagName("img");
 //let dimg = document.getElementById("dimg");
@@ -39,22 +74,3 @@
 //        all12.setAttribute("src", hamza[r--]);
 //    }
 //}{}
-var arr=[];
-function getelement(){
-    
-
-var myHeaders = new Headers();
-
-myHeaders.append('authorization', 'Bearer 55A-3rhf2qkiXAIjRb27VMXElPJjK3gInWxj');
-fetch('https://gorest.co.in/public-api/photos', {
-        method: 'GET',
-        headers: myHeaders,
-    })
-    .then(response => response.json())
-    .then(data => console.log(arr=data.result));
-    var html = arr.map((item, index) => {
-       return '<div class="myList">' +
-           '<img class="img3" src="' + item.thumbnail + ' " data-id="' + index   + '"  onclick="bigimage()"></div>';
-   });
-   document.getElementById('gallery').innerHTML = html.join('');
-}
